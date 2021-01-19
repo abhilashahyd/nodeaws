@@ -32,12 +32,20 @@ var client = {
 
 var redshiftClient = new Redshift(client);
 // Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.urlencoded());
+// app.use(express.urlencoded());
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
+var bodyParser = require('body-parser');
 
+// app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.urlencoded({
+   extended: false
+}));
+
+app.use(bodyParser.json());
 
 app.post('/test', function (request, response) {
     console.log(request.body);
