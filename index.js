@@ -16,7 +16,7 @@ s3 = new aws.S3({
 
 var app = express();
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log('Server is up on port 3000');
 });
 //redshift.js
