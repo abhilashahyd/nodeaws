@@ -8,11 +8,11 @@ var aws = require('aws-sdk')
 // // Create S3 service object
 // s3 = new aws.S3({apiVersion: '2006-03-01'});
 s3 = new aws.S3({
-    accessKeyId: 'AKIAY3VA26JR7LH4FG5O',
-    secretAccessKey: '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',
+    accessKeyId: 'XXXXXXXXXXXXXXXX',
+    secretAccessKey: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     region: 'us-east-1'
 });
-// const express = require('express');
+
 
 var app = express();
 
@@ -25,7 +25,7 @@ var Redshift = require('node-redshift');
 var client = {
     user: 'awsuser',
     database: 'dev',
-    password: 'Aws%2020',
+    password: 'XXXXXX',
     port: '5439',
     host: 'redshift-cluster-1.cxkpwzrvcnrm.us-east-1.redshift.amazonaws.com',
 };
@@ -130,7 +130,7 @@ app.post('/', function (request, response) {
             else {
                 console.log('s3 done in ');
                 //Upload successful. You can delete the S3 files
-                var pg_query = "copy test1 from 's3://aws-bucket-2021/items.txt' " + "ACCESS_KEY_ID 'AKIAY3VA26JR7LH4FG5O' SECRET_ACCESS_KEY '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' escape delimiter as ',';";
+                var pg_query = "copy test1 from 's3://aws-bucket-2021/items.txt' " + "ACCESS_KEY_ID 'XXXXXXXXXXXXXXXXXXXXXX' SECRET_ACCESS_KEY 'XXXXXXXXXXXXXXXXXXXXXXXXXXX' escape delimiter as ',';";
 
                 redshiftClient.query(pg_query, { raw: true }, function (err1, pgres) {
                     //query completed, we can close the connection
